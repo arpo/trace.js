@@ -14,6 +14,8 @@ Basic usage
 
     trace('msg', 'Hello world!');
 
+The first part, the label, must be like a variable in style, meaning: you can't use space or other funky characters.
+
  Or with an updating value:
 
      setInterval(function () {
