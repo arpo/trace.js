@@ -3,6 +3,8 @@ trace.js
 
 Monitor a variable's value on screen. Useful when monitoring values that updates frequently like mouse position, scroll top etc.
 
+![example](http://i.imgur.com/XZRxXIx.png)
+
 Install
 -------
 Clone or include from CDN:

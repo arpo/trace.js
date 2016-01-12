@@ -7,21 +7,25 @@
 </head>
 
 <body>
+
+	<img src="https://unsplash.it/800/450?image=127" alt="">
+
 	<script type="text/javascript" src="trace.js"></script>
 	<script type="text/javascript">
 
 		// Customize, must be runned as first trace.
 		trace('Msg', 'Hello world', {
-			position: 'bl', // Default tr
+			position: 'tl', // Default tr
 			margin: 20, // Default 10
 			width: 350,  // Default 280
 			padding: 18, // Default 10
 			fontSize: 18, // Default 12
+			opacity: 0.9, // Default 1
 			color: '#333333',  // Default #000
 			backgroundColor: '#eaeaea', // Default #eee
 			lineColor: '#440000', // Default #7ACEF5
 			zIndex: 10, // Default 9999
-			shadow: '' // Default '1px 1px 10px rgba(0, 0, 0, 0.3)'
+			shadow: '5px 5px 10px rgba(0, 0, 0, 0.7)' // Default '1px 1px 10px rgba(0, 0, 0, 0.3)'
 		});
 
 		setInterval(function () {

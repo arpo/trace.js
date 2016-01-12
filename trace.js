@@ -62,6 +62,7 @@ function trace(label, value, opt) {
 				'	z-index: ' + (opt.zIndex || 9999) + '; ' +
 				'	position: fixed; ' +
 				'	width: ' + (opt.width || 280) + 'px; ' +
+				'	opacity: ' + (opt.opacity || 1) + '; ' +
 				'	padding: ' + (opt.padding || 10) + 'px; ' +
 				'	font-family: sans-serif;' +
 				'	font-size: ' + (opt.fontSize || 12) + 'px; ' +
