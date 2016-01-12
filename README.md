@@ -3,7 +3,13 @@ trace.js
 
 Monitor a variable's value on screen. Useful when monitoring values that updates frequently like mouse position, scroll top etc.
 
-Basic usage:
+Install
+-------
+Clone or include from CDN:
+
+    <script src="https://cdn.rawgit.com/arpo/trace.js/master/trace.min.js"></script>
+
+Basic usage
 -----------
 
     trace('msg', 'Hello world!');
