@@ -40,6 +40,7 @@ Or customize it like this:
     trace('Msg', 'Hello world', {
         position: 'bl', // Default tr (), values tr | br | tl | bl
         margin: 20, // Default 10
+        opacity: 0.4, // Default 1
         width: 350,  // Default 280
         padding: 18, // Default 10
         fontSize: 18, // Default 12
