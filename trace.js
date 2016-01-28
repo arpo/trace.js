@@ -83,6 +83,20 @@ function trace(label, value, opt) {
 		window.traceOpt.container = document.getElementById('traceOutContainer');
 	}
 
+	if (label === '_off') {
+		window.traceOpt.off = true;
+		document.getElementById('traceOutContainer').style.display = 'none';
+		return;
+	}
+
+	if (label === '_on') {
+		window.traceOpt.off = false;
+		document.getElementById('traceOutContainer').style.display = 'block';
+		return;
+	}
+
+	if (window.traceOpt.off) return;
+
 	var propName = label,
 		outStr = label,
 		currOut;

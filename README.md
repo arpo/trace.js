@@ -50,3 +50,14 @@ Or customize it like this:
         zIndex: 10, // Default 9999
         shadow: '' // Default '1px 1px 10px rgba(0, 0, 0, 0.3)'
     });
+
+Disable (On/Off)
+----------------------
+
+Turn off and hide:
+
+    trace('_off');
+
+Turn on and show:
+
+    trace('_on');
