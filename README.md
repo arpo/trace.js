@@ -1,6 +1,10 @@
 trace.js
 ========
 
+Version 1.5
+
+By Mattias Johansson, Copyright 2016, Licensed GPL & MIT
+
 Monitor a variable's value on screen. Useful when monitoring values that updates frequently like mouse position, scroll top etc.
 
 ![example](http://i.imgur.com/XZRxXIx.png)
@@ -16,14 +20,19 @@ Basic usage
 
     trace('msg', 'Hello world!');
 
-The first part, the label, must be like a variable in style, meaning: you can't use space or other funky characters.
+The first part, the label.
 
- Or with an updating value:
+With an updating value:
 
      setInterval(function () {
          trace('Time', new Date().getTime());
      }, 1000 / 30);
 
+You can also trace arrays and objects (JSON)
+
+To change background color of a trace do this:
+
+    trace('Colored', 'I\'m red', '#ffb8b8');
 
 Themes
 ------
