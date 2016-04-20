@@ -1,4 +1,41 @@
+ /**
+  * inView 1.5
+  * @author Mattias Johansson
+  * @copyright Mattias Johansson
+  * License http://opensource.org/licenses/MIT
+  *
+  * Monitor a variable's value on screen. Useful when monitoring values that updates frequently like mouse position, scroll top etc.
+  * https://github.com/arpo/trace.js
+  */
+
 function trace(label, value, opt) {
+
+	var manageLabel,
+	 	removeForbiddenChars,
+		bgColorOpt = '',
+		tabbify;
+
+	removeForbiddenChars = function (val) {
+		val = val.toLowerCase();
+		val = val.replace(/[^a-zA-Z 0-9]+/g, '');
+		val = val.replace(/^\s+|\s+$/gm, '');
+		return val;
+	};
+
+	manageLabel = function (label) {
+
+		label = label.split(' ').join('_');
+		label = removeForbiddenChars(label);
+		return label;
+
+	};
+
+	tabbify = function (str) {
+		str = str.split(' ').join('&nbsp;');
+		str = str.split('\n').join('<br>');
+		return str;
+	};
+
 
 	if (typeof(opt) === 'number') {
 
@@ -36,6 +73,9 @@ function trace(label, value, opt) {
 			};
 		}
 
+	} else
+		if (/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(opt)) {
+		bgColorOpt = opt;
 	}
 
 	opt = opt || window.traceOpt || {};
@@ -63,7 +103,7 @@ function trace(label, value, opt) {
 				'	position: fixed; ' +
 				'	width: ' + (opt.width || 280) + 'px; ' +
 				'	opacity: ' + (opt.opacity || 1) + '; ' +
-				'	padding: ' + (opt.padding || 10) + 'px; ' +
+				'	padding: ' + (opt.padding || 0) + 'px; ' +
 				'	font-family: sans-serif;' +
 				'	font-size: ' + (opt.fontSize || 12) + 'px; ' +
 				'	color: ' + (opt.color || '#000') + ';' +
@@ -97,17 +137,32 @@ function trace(label, value, opt) {
 
 	if (window.traceOpt.off) return;
 
-	var propName = label,
+	var propName = manageLabel(label),
 		outStr = label,
+		outputValue = value,
 		currOut;
 
-	if (typeof(value) !==  'undefined') outStr = '<b>' + label + ':</b> ' + value;
-	else outStr = label;
+	if (typeof(outputValue) === 'undefined') {
+		outputValue = '<i>undefined</i>';
+	} else if (value instanceof Array) {
+		outputValue = '<br>[';
+		for (var i = 0; i < value.length; i++) {
+			outputValue += value[i];
+			if (i < value.length - 1) {
+				outputValue += ', ';
+			}
+		}
+		outputValue += ']';
+	} else if (value !== null && (typeof value === 'object' || typeof value === 'function')){
+		outputValue = '<br>' + tabbify(JSON.stringify(value, null, 4));
+	}
 
+	outStr = '<b>' + label + ':</b> <span>' + outputValue + '</span>';
 	currOut = window.traceOpt.outs[propName];
 
 	var rowCode = '<div style="' +
-		'padding: 5px 0px;' +
+		'padding: 7px 10px;' +
+		'background-color: ' + bgColorOpt + ';' +
 		'border-bottom: 1px solid ' + (opt.lineColor || '#7ACEF5') + ';' +
 		'margin-bottom: 0px;"' +
 	'id="traceOutContainer_' + propName + '">' + outStr + '</div>';
@@ -117,7 +172,7 @@ function trace(label, value, opt) {
 		var newDiv = document.createElement("DIV");
 		newDiv.innerHTML = rowCode;
 		window.traceOpt.container.appendChild(newDiv);
-		if (typeof(value) !==  'undefined')  window.traceOpt.outs[propName] = document.getElementById('traceOutContainer_' + propName);
+		if (typeof(outputValue) !==  'undefined')  window.traceOpt.outs[propName] = document.getElementById('traceOutContainer_' + propName);
 
 
 	} else {
