@@ -15,6 +15,11 @@ function trace(label, value, opt) {
 		bgColorOpt = '',
 		tabbify;
 
+	if (typeof(label) === 'object') {
+		opt = label;
+		label = '';
+	}
+
 	removeForbiddenChars = function (val) {
 		val = val.toLowerCase();
 		val = val.replace(/[^a-zA-Z 0-9]+/g, '');
@@ -167,15 +172,18 @@ function trace(label, value, opt) {
 		'margin-bottom: 0px;"' +
 	'id="traceOutContainer_' + propName + '">' + outStr + '</div>';
 
+	if (label) {
 
-	if (!currOut) {
-		var newDiv = document.createElement("DIV");
-		newDiv.innerHTML = rowCode;
-		window.traceOpt.container.appendChild(newDiv);
-		if (typeof(outputValue) !==  'undefined')  window.traceOpt.outs[propName] = document.getElementById('traceOutContainer_' + propName);
+		if (!currOut) {
+			var newDiv = document.createElement("DIV");
+			newDiv.innerHTML = rowCode;
+			window.traceOpt.container.appendChild(newDiv);
+			if (typeof(outputValue) !==  'undefined')  window.traceOpt.outs[propName] = document.getElementById('traceOutContainer_' + propName);
 
 
-	} else {
-		window.traceOpt.outs[propName].innerHTML = outStr;
+		} else {
+			window.traceOpt.outs[propName].innerHTML = outStr;
+		}
 	}
+
 }

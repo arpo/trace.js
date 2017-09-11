@@ -46,7 +46,7 @@ Customize
 
 Or customize it like this:
 
-    trace('Msg', 'Hello world', {
+    trace({
         position: 'bl', // Default tr (), values tr | br | tl | bl
         margin: 20, // Default 10
         opacity: 0.4, // Default 1
@@ -59,6 +59,10 @@ Or customize it like this:
         zIndex: 10, // Default 9999
         shadow: '' // Default '1px 1px 10px rgba(0, 0, 0, 0.3)'
     });
+
+Reposition like this
+
+    trace({position: 'bl'}); // Default tr (), values tr | br | tl | bl
 
 Disable (On/Off)
 ----------------------
