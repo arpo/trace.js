@@ -1,10 +1,6 @@
 trace.js
 ========
 
-Version 1.5
-
-By Mattias Johansson, Copyright 2016, Licensed GPL & MIT
-
 Monitor a variable's value on screen. Useful when monitoring values that updates frequently like mouse position, scroll top etc.
 
 ![example](http://i.imgur.com/XZRxXIx.png)
@@ -74,3 +70,5 @@ Turn off and hide:
 Turn on and show:
 
     trace('_on');
+
+By Mattias Johansson, Licensed GPL & MIT

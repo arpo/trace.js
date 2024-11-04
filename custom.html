@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>trace.js</title>
+  </head>
 
-<head>
-	<meta charset="utf-8">
-	<title>trace.js</title>
-</head>
+  <body>
+    <img src="https://unsplash.it/800/450?image=127" alt="" />
 
-<body>
+    <script type="text/javascript" src="trace.js"></script>
+    <script type="text/javascript">
+      trace({
+        position: "tl", // Default tr
+        margin: 20, // Default 10
+        width: 350, // Default 280
+        padding: 18, // Default 10
+        fontSize: 18, // Default 12
+        opacity: 0.9, // Default 1
+        color: "#333333", // Default #000
+        backgroundColor: "#eaeaea", // Default #eee
+        lineColor: "#440000", // Default #7ACEF5
+        zIndex: 10, // Default 9999
+        shadow: "5px 5px 10px rgba(0, 0, 0, 0.7)", // Default '1px 1px 10px rgba(0, 0, 0, 0.3)'
+      });
 
-	<img src="https://unsplash.it/800/450?image=127" alt="">
-
-	<script type="text/javascript" src="trace.js"></script>
-	<script type="text/javascript">
-
-		trace({
-			position: 'tl', // Default tr
-			margin: 20, // Default 10
-			width: 350,  // Default 280
-			padding: 18, // Default 10
-			fontSize: 18, // Default 12
-			opacity: 0.9, // Default 1
-			color: '#333333',  // Default #000
-			backgroundColor: '#eaeaea', // Default #eee
-			lineColor: '#440000', // Default #7ACEF5
-			zIndex: 10, // Default 9999
-			shadow: '5px 5px 10px rgba(0, 0, 0, 0.7)' // Default '1px 1px 10px rgba(0, 0, 0, 0.3)'
-		});
-
-		setInterval(function () {
-			trace('Time', new Date().getTime());
-		}, 1000 / 30);
-
-
-
-	</script>
-</body>
-
+      setInterval(function () {
+        trace("Time", new Date().getTime());
+      }, 1000 / 30);
+    </script>
+  </body>
 </html>

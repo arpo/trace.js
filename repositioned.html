@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>trace.js</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
 
-<head>
-	<meta charset="utf-8">
-	<title>trace.js</title>
-	<style>
-	body {
-		margin: 0;
-	}
-	</style>
-</head>
+  <body>
+    <script type="text/javascript" src="trace.js"></script>
+    <script type="text/javascript">
+      var myArray = [
+          0, 1075, 2388, 3463, 4538, 4638, 5713, 6560, 7635, 8710, 9785, 10860,
+          11935,
+        ],
+        myObject = {
+          a: "Alpha",
+          b: "Beta",
+          c: {
+            one: 1,
+            two: 2,
+          },
+        };
 
-<body>
+      trace({ position: "bl" }); // Default tr (), values tr | br | tl | bl
 
-	<script type="text/javascript" src="trace.js"></script>
-	<script type="text/javascript">
-
-
-		var myArray = [0, 1075, 2388, 3463, 4538, 4638, 5713, 6560, 7635, 8710, 9785, 10860, 11935],
-			myObject = {
-				a: 'Alpha',
-				b: 'Beta',
-				c: {
-					one: 1,
-					two: 2
-				}
-			};
-
-		trace({position: 'bl'}); // Default tr (), values tr | br | tl | bl
-
-		setInterval(function () {
-
-			trace('Time to wait', new Date().getTime());
-			trace('My array', myArray);
-			trace('My object', myObject);
-			trace('Colored', 'I\'m red', '#ffb8b8');
-
-		}, 1000 / 10);
-
-	</script>
-</body>
-
+      setInterval(function () {
+        trace("Time to wait", new Date().getTime());
+        trace("My array", myArray);
+        trace("My object", myObject);
+        trace("Colored", "I'm red", "#ffb8b8");
+      }, 1000 / 10);
+    </script>
+  </body>
 </html>
